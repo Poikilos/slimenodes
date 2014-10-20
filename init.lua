@@ -82,7 +82,7 @@ minetest.register_node("slimenodes:slime_liquid_orange", {
 	liquid_renewable = false,
 	liquids_pointable = true,
 	drowning = 0,
-	post_effect_color = {a=64, r=200, g=100, b=0},
+	post_effect_color = {a=96, r=200, g=100, b=0},
 	groups = {liquid=3, slimey=3, level=2, flammable=1},
 	sounds = {
 		dig = {name="slimenodes_dig", gain=0.3},
