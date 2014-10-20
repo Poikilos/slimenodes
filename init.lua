@@ -207,7 +207,7 @@ minetest.register_tool("slimenodes:collector_lvl3", {
 	tool_capabilities = {
 		full_punch_interval = 1,
 		groupcaps = {
-			slimey = { times = { [1] = 4, [2] = 1.5, [3] = 0.5 }, uses = 0, maxlevel = 3 }
+			slimey = { times = { [1] = 4, [2] = 1.5, [3] = 0.75 }, uses = 0, maxlevel = 3 }
 		}
 	}
 })
