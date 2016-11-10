@@ -1,0 +1,12 @@
+Cyan liquid slime =
+Cyan solid slime =
+Green liquid slime =
+Green solid slime =
+Orange liquid slime =
+Orange solid slime =
+Slime collector level 1 =
+Slime collector level 2 =
+Slime collector level 3 =
+Slime collector level 4 =
+Violet liquid slime =
+Violet solid slime =

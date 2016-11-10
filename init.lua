@@ -1,5 +1,13 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if minetest.get_modpath("intllib") then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 minetest.register_node("slimenodes:slime_liquid_cyan", {
-	description = "cyan liquid slime",
+	description = S("Cyan liquid slime"),
 	inventory_image = minetest.inventorycube("slimenodes_liquidslime_cyan.png"),
 	drawtype = "liquid",
 	tiles = { "slimenodes_liquidslime_cyan.png" },
@@ -30,7 +38,7 @@ minetest.register_node("slimenodes:slime_liquid_cyan", {
 })
 
 minetest.register_node("slimenodes:slime_liquid_green", {
-	description = "green liquid slime",
+	description = S("Green liquid slime"),
 	inventory_image = minetest.inventorycube("slimenodes_liquidslime_green.png"),
 	drawtype = "liquid",
 	tiles = { "slimenodes_liquidslime_green.png" },
@@ -61,7 +69,7 @@ minetest.register_node("slimenodes:slime_liquid_green", {
 })
 
 minetest.register_node("slimenodes:slime_liquid_orange", {
-	description = "orange liquid slime",
+	description = S("Orange liquid slime"),
 	inventory_image = minetest.inventorycube("slimenodes_liquidslime_orange.png"),
 	drawtype = "liquid",
 	tiles = { "slimenodes_liquidslime_orange.png" },
@@ -92,7 +100,7 @@ minetest.register_node("slimenodes:slime_liquid_orange", {
 })
 
 minetest.register_node("slimenodes:slime_liquid_violet", {
-	description = "violet liquid slime",
+	description = S("Violet liquid slime"),
 	inventory_image = minetest.inventorycube("slimenodes_liquidslime_violet.png"),
 	drawtype = "liquid",
 	tiles = { "slimenodes_liquidslime_violet.png" },
@@ -124,7 +132,7 @@ minetest.register_node("slimenodes:slime_liquid_violet", {
 
 
 minetest.register_node("slimenodes:slime_solid_cyan", {
-	description = "cyan solid slime",
+	description = S("Cyan solid slime"),
 	tiles = { "slimenodes_solidslime_cyan.png" },
 	walkable = true,
 	groups = {slimey=3, level=1},
@@ -137,7 +145,7 @@ minetest.register_node("slimenodes:slime_solid_cyan", {
 })
 
 minetest.register_node("slimenodes:slime_solid_green", {
-	description = "green solid slime",
+	description = S("Green solid slime"),
 	tiles = { "slimenodes_solidslime_green.png" },
 	walkable = true,
 	groups = {slimey=3, fall_damage_add_percent=-10, level=2},
@@ -150,7 +158,7 @@ minetest.register_node("slimenodes:slime_solid_green", {
 })
 
 minetest.register_node("slimenodes:slime_solid_orange", {
-	description = "orange solid slime",
+	description = S("Orange solid slime"),
 	tiles = { "slimenodes_solidslime_orange.png" },
 	walkable = true,
 	groups = {slimey=3, fall_damage_add_percent=-20, level=2, flammable=1},
@@ -163,7 +171,7 @@ minetest.register_node("slimenodes:slime_solid_orange", {
 })
 
 minetest.register_node("slimenodes:slime_solid_violet", {
-	description = "violet solid slime",
+	description = S("Violet solid slime"),
 	tiles = { "slimenodes_solidslime_violet.png" },
 	walkable = true,
 	groups = {slimey=3, fall_damage_add_percent=-30, disable_jump=1, level=3},
@@ -177,7 +185,7 @@ minetest.register_node("slimenodes:slime_solid_violet", {
 
 
 minetest.register_tool("slimenodes:collector_lvl1", {
-	description = "slime collector level 1",
+	description = S("Slime collector level 1"),
 	inventory_image = "slimenodes_collector_lvl1.png",
 	liquids_pointable = true,
 	tool_capabilities = {
@@ -189,7 +197,7 @@ minetest.register_tool("slimenodes:collector_lvl1", {
 })
 
 minetest.register_tool("slimenodes:collector_lvl2", {
-	description = "slime collector level 2",
+	description = S("Slime collector level 2"),
 	inventory_image = "slimenodes_collector_lvl2.png",
 	liquids_pointable = true,
 	tool_capabilities = {
@@ -201,7 +209,7 @@ minetest.register_tool("slimenodes:collector_lvl2", {
 })
 
 minetest.register_tool("slimenodes:collector_lvl3", {
-	description = "slime collector level 3",
+	description = S("Slime collector level 3"),
 	inventory_image = "slimenodes_collector_lvl3.png",
 	liquids_pointable = true,
 	tool_capabilities = {
@@ -213,7 +221,7 @@ minetest.register_tool("slimenodes:collector_lvl3", {
 })
 
 minetest.register_tool("slimenodes:collector_lvl4", {
-	description = "slime collector level 4",
+	description = S("Slime collector level 4"),
 	inventory_image = "slimenodes_collector_lvl4.png",
 	liquids_pointable = true,
 	tool_capabilities = {

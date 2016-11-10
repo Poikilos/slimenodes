@@ -1,0 +1,12 @@
+Cyan liquid slime = Türkiser Flüssigschleim
+Cyan solid slime = Türkiser Festschleim
+Green liquid slime = Grüner Flüssigschleim
+Green solid slime = Grüner Festschleim
+Orange liquid slime = Orange Flüssigschleim
+Orange solid slime = Orange Festschleim
+Slime collector level 1 = Schleimsammler Stufe 1
+Slime collector level 2 = Schleimsammler Stufe 2
+Slime collector level 3 = Schleimsammler Stufe 3
+Slime collector level 4 = Schleimsammler Stufe 4
+Violet liquid slime = Violetter Flüssigschleim
+Violet solid slime = Violetter Festschleim
