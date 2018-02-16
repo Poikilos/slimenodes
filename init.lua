@@ -8,10 +8,15 @@ end
 
 minetest.register_node("slimenodes:slime_liquid_cyan", {
 	description = S("Cyan liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_liquidslime_cyan.png"),
+	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_cyan.png"),
 	drawtype = "liquid",
-	tiles = { "slimenodes_liquidslime_cyan.png" },
-	special_tiles = { { name = "slimenodes_liquidslime_cyan.png", backface_culling = false } },
+	tiles = { "slimenodes_slime_liquid_cyan.png" },
+	special_tiles = {
+		{
+			name = "slimenodes_slime_liquid_cyan.png",
+			backface_culling = false
+		},
+	},
 	alpha = 120,
 	sunlight_propagates = true,
 	paramtype = "light",
@@ -29,20 +34,19 @@ minetest.register_node("slimenodes:slime_liquid_cyan", {
 	liquids_pointable = true,
 	drowning = 0,
 	post_effect_color = {a=16, r=0, g=255, b=255},
-	groups = {liquid=3, slimey=3, oddly_breakable_by_hand=1},
+	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
-		dug = {name="slimenodes_dug", gain=0.6},
+		dug = {name="slimenodes_dig", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 	}
 })
 
 minetest.register_node("slimenodes:slime_liquid_green", {
 	description = S("Green liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_liquidslime_green.png"),
+	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_green.png"),
 	drawtype = "liquid",
-	tiles = { "slimenodes_liquidslime_green.png" },
-	special_tiles = { { name = "slimenodes_liquidslime_green.png", backface_culling = false } },
+	tiles = { "slimenodes_slime_liquid_green.png" },
+	special_tiles = { { name = "slimenodes_slime_liquid_green.png", backface_culling = false } },
 	alpha = 170,
 	sunlight_propagates = false,
 	paramtype = "light",
@@ -60,20 +64,19 @@ minetest.register_node("slimenodes:slime_liquid_green", {
 	liquids_pointable = true,
 	drowning = 0,
 	post_effect_color = {a=64, r=100, g=200, b=100},
-	groups = {liquid=3, slimey=3, level=1},
+	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=1},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
-		dug = {name="slimenodes_dug", gain=0.6},
+		dug = {name="slimenodes_dig", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 	}
 })
 
 minetest.register_node("slimenodes:slime_liquid_orange", {
 	description = S("Orange liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_liquidslime_orange.png"),
+	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_orange.png"),
 	drawtype = "liquid",
-	tiles = { "slimenodes_liquidslime_orange.png" },
-	special_tiles = { { name = "slimenodes_liquidslime_orange.png", backface_culling = false } },
+	tiles = { "slimenodes_slime_liquid_orange.png" },
+	special_tiles = { { name = "slimenodes_slime_liquid_orange.png", backface_culling = false } },
 	alpha = 200,
 	sunlight_propagates = false,
 	paramtype = "light",
@@ -91,20 +94,19 @@ minetest.register_node("slimenodes:slime_liquid_orange", {
 	liquids_pointable = true,
 	drowning = 0,
 	post_effect_color = {a=96, r=200, g=100, b=0},
-	groups = {liquid=3, slimey=3, level=2, flammable=1},
+	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=2},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
-		dug = {name="slimenodes_dug", gain=0.6},
+		dug = {name="slimenodes_dig", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 	}
 })
 
 minetest.register_node("slimenodes:slime_liquid_violet", {
 	description = S("Violet liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_liquidslime_violet.png"),
+	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_violet.png"),
 	drawtype = "liquid",
-	tiles = { "slimenodes_liquidslime_violet.png" },
-	special_tiles = { { name = "slimenodes_liquidslime_violet.png", backface_culling = false } },
+	tiles = { "slimenodes_slime_liquid_violet.png" },
+	special_tiles = { { name = "slimenodes_slime_liquid_violet.png", backface_culling = false } },
 	alpha = 220,
 	sunlight_propagates = false,
 	paramtype = "light",
@@ -122,22 +124,19 @@ minetest.register_node("slimenodes:slime_liquid_violet", {
 	liquids_pointable = true,
 	drowning = 0,
 	post_effect_color = {a=128, r=50, g=0, b=200},
-	groups = {liquid=3, slimey=3, level=3},
+	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=3},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
-		dug = {name="slimenodes_dug", gain=0.6},
+		dug = {name="slimenodes_dig", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 	}
 })
 
-
 minetest.register_node("slimenodes:slime_solid_cyan", {
 	description = S("Cyan solid slime"),
-	tiles = { "slimenodes_solidslime_cyan.png" },
+	tiles = { "slimenodes_slime_solid_cyan.png" },
 	walkable = true,
-	groups = {slimey=3, level=1},
+	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=1},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 		footstep = {name="slimenodes_step", gain=0.2},
@@ -146,11 +145,10 @@ minetest.register_node("slimenodes:slime_solid_cyan", {
 
 minetest.register_node("slimenodes:slime_solid_green", {
 	description = S("Green solid slime"),
-	tiles = { "slimenodes_solidslime_green.png" },
+	tiles = { "slimenodes_slime_solid_green.png" },
 	walkable = true,
-	groups = {slimey=3, fall_damage_add_percent=-10, level=2},
+	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=2},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 		footstep = {name="slimenodes_step", gain=0.3},
@@ -159,11 +157,10 @@ minetest.register_node("slimenodes:slime_solid_green", {
 
 minetest.register_node("slimenodes:slime_solid_orange", {
 	description = S("Orange solid slime"),
-	tiles = { "slimenodes_solidslime_orange.png" },
+	tiles = { "slimenodes_slime_solid_orange.png" },
 	walkable = true,
-	groups = {slimey=3, fall_damage_add_percent=-20, level=2, flammable=1},
+	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=2},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 		footstep = {name="slimenodes_step", gain=0.35},
@@ -172,11 +169,10 @@ minetest.register_node("slimenodes:slime_solid_orange", {
 
 minetest.register_node("slimenodes:slime_solid_violet", {
 	description = S("Violet solid slime"),
-	tiles = { "slimenodes_solidslime_violet.png" },
+	tiles = { "slimenodes_slime_solid_violet.png" },
 	walkable = true,
-	groups = {slimey=3, fall_damage_add_percent=-30, disable_jump=1, level=3},
+	groups = {bouncy=100, fall_damage_add_percent=-30, slimey=3, level=3},
 	sounds = {
-		dig = {name="slimenodes_dig", gain=0.3},
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
 		footstep = {name="slimenodes_step", gain=0.4},
@@ -231,3 +227,7 @@ minetest.register_tool("slimenodes:collector_lvl4", {
 		}
 	}
 })
+
+dofile(minetest.get_modpath("slimenodes").."/buckets.lua")
+dofile(minetest.get_modpath("slimenodes").."/recipes.lua")
+
