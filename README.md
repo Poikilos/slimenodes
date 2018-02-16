@@ -1,8 +1,8 @@
 # slimenodes
-Make bouncy solid slime and non-flowing liquid slime in minetest!
-Based on Wuzzy's slimenodes
-License:
-code is LGPL 3.0
+Make bouncy solid slime and non-flowing liquid slime in minetest!\
+Based on Wuzzy's slimenodes\
+License:\
+code is LGPL 3.0\
 media is CC-BY-SA 3.0
 
 
