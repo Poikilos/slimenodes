@@ -1,5 +1,6 @@
 # slimenodes
-Make bouncy solid slime and non-flowing liquid slime in minetest!\
+(minetest mod)\
+Make bouncy solid slime and non-flowing liquid slime in minetest!
 
 ## Changes in expertmm fork
 * added physics
@@ -18,11 +19,11 @@ Make bouncy solid slime and non-flowing liquid slime in minetest!\
 
 
 ## Authors
-* original version: Wuzzy
+* [original version](https://forum.minetest.net/viewtopic.php?t=10423): Wuzzy
 * sound: Wuzzy
 * bucket graphics: expertmm (Jake Gustafson)
 * all other graphics: Wuzzy
 
 
 ## License
-see included LICENSE
+see included [license.txt](https://github.com/expertmm/slimenodes/blob/master/license.txt)
