@@ -9,7 +9,7 @@ Make bouncy solid slime and non-flowing liquid slime in minetest!
   * liquid is liquid-like
 * made buckets for all types so collectors are not needed and storage is nerfed by 1 per inventory slot
 * made recipes for all types (only if you have meseconds installed, since uses glue)
-* made behavior uniform for all blocks other than levels
+* made all liquid blocks behave like each other and all solid blocks behave like each other (though levels differ)
 * changed sounds so liquid and solid each use a different one of the dug sounds, but this doesn't seem to work unless using slime collectors
 
 
