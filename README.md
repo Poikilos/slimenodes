@@ -5,7 +5,7 @@ Make bouncy solid slime and non-flowing liquid slime in minetest!
 ## Changes in expertmm fork
 * added physics
   * solid is bouncy
-  * bouncy stops fall damage (-100%; not sure how with water)
+  * all bouncy slime nodes stop fall damage (-100%; not sure how with liquid slime)
   * liquid is liquid-like
 * made buckets for all types so collectors are not needed and storage is nerfed by 1 per inventory slot
 * made recipes for all types (only if you have meseconds installed, since uses glue)
