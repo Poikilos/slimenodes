@@ -2,7 +2,7 @@
 (minetest mod)\
 Make bouncy solid slime and non-flowing liquid slime in minetest!
 
-## Changes in expertmm fork
+## Changes in poikilos fork
 * added physics
   * solid is bouncy
   * all bouncy slime nodes stop fall damage (-100%; not sure how with liquid slime)
@@ -11,19 +11,16 @@ Make bouncy solid slime and non-flowing liquid slime in minetest!
 * made recipes for all types (only if you have meseconds installed, since uses glue)
 * made all liquid blocks behave like each other and all solid blocks behave like each other (though levels differ)
 * changed sounds so liquid and solid each use a different one of the dug sounds, but this doesn't seem to work unless using slime collectors
-
-
-## Known Issues
-~=low-priority
-* (~) slime collectors are still not craftable (may be left that way since multiplayer could use some limitation on storage--see above)
+* slime collectors cannot be crafted since holding stacks of slime would allow overpowered griefing (they can still be given administratively, but in multiplayer they should only be used for cleanup so they aren't traded or otherwise abused later)
 
 
 ## Authors
 * [original version](https://forum.minetest.net/viewtopic.php?t=10423): Wuzzy
 * sound: Wuzzy
-* bucket graphics: expertmm (Jake Gustafson)
+* full bucket graphics: poikilos (Jake Gustafson), based on empty bucket by ElementW (CC BY-SA 3.0)
 * all other graphics: Wuzzy
 
 
 ## License
-see included [license.txt](https://github.com/expertmm/slimenodes/blob/master/license.txt)
+code: see included [license.txt](https://github.com/poikilos/slimenodes/blob/master/license.txt)
+media: [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) poikilos and ElementW
