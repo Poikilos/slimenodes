@@ -27,28 +27,35 @@ minetest.register_craft({
 })
 
 local mesecons_materials = minetest.get_modpath("mesecons_materials")
+local technic = minetest.get_modpath("technic")
 
+local glue_fullname = nil
 
 if mesecons_materials then
+	glue_fullname = "mesecons_materials:glue"
+elseif technic then
+	glue_fullname = "technic:glue"
+end
+if glue_fullname then
 	minetest.register_craft({
 		type = "shapeless",
 		output = "slimenodes:bucket_slime_liquid_cyan",
-		recipe = {"bucket:bucket_water", "mesecons_materials:glue", "dye:cyan"},
+		recipe = {"bucket:bucket_water", glue_fullname, "dye:cyan"},
 	})
 	minetest.register_craft({
 		type = "shapeless",
 		output = "slimenodes:bucket_slime_liquid_green",
-		recipe = {"bucket:bucket_water", "mesecons_materials:glue", "dye:green"},
+		recipe = {"bucket:bucket_water", glue_fullname, "dye:green"},
 	})
 	minetest.register_craft({
 		type = "shapeless",
 		output = "slimenodes:bucket_slime_liquid_orange",
-		recipe = {"bucket:bucket_water", "mesecons_materials:glue", "dye:orange"},
+		recipe = {"bucket:bucket_water", glue_fullname, "dye:orange"},
 	})
 	minetest.register_craft({
 		type = "shapeless",
 		output = "slimenodes:bucket_slime_liquid_violet",
-		recipe = {"bucket:bucket_water", "mesecons_materials:glue", "dye:violet"},
+		recipe = {"bucket:bucket_water", glue_fullname, "dye:violet"},
 	})
 end
 
