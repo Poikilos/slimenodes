@@ -135,7 +135,7 @@ minetest.register_node("slimenodes:slime_solid_cyan", {
 	description = S("Cyan solid slime"),
 	tiles = { "slimenodes_slime_solid_cyan.png" },
 	walkable = true,
-	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=1},
+	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=1},
 	sounds = {
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
@@ -147,7 +147,7 @@ minetest.register_node("slimenodes:slime_solid_green", {
 	description = S("Green solid slime"),
 	tiles = { "slimenodes_slime_solid_green.png" },
 	walkable = true,
-	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=2},
+	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=2},
 	sounds = {
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
@@ -159,7 +159,7 @@ minetest.register_node("slimenodes:slime_solid_orange", {
 	description = S("Orange solid slime"),
 	tiles = { "slimenodes_slime_solid_orange.png" },
 	walkable = true,
-	groups = {bouncy=100, fall_damage_add_percent=-100, slimey=3, level=2},
+	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=2},
 	sounds = {
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
@@ -171,7 +171,7 @@ minetest.register_node("slimenodes:slime_solid_violet", {
 	description = S("Violet solid slime"),
 	tiles = { "slimenodes_slime_solid_violet.png" },
 	walkable = true,
-	groups = {bouncy=100, fall_damage_add_percent=-30, slimey=3, level=3},
+	groups = {bouncy=90, fall_damage_add_percent=-30, slimey=3, level=3},
 	sounds = {
 		dug = {name="slimenodes_dug", gain=0.6},
 		place = {name="slimenodes_place", gain=0.6},
