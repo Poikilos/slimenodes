@@ -19,7 +19,7 @@
 -- This function can be called from any mod (that depends on bucket).
 
 if rawget(_G, "bucket") and bucket.register_liquid then
-
+	-- source, flowing, itemname, inventory image, name, groups, force_renew
 	bucket.register_liquid(
 		"slimenodes:slime_liquid_cyan",
 		"slimenodes:slime_liquid_cyan",
