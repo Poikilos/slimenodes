@@ -6,179 +6,217 @@ else
 	S = function(s) return s end
 end
 
-minetest.register_node("slimenodes:slime_liquid_cyan", {
-	description = S("Cyan liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_cyan.png"),
-	drawtype = "liquid",
-	tiles = { "slimenodes_slime_liquid_cyan.png" },
-	special_tiles = {
-		{
-			name = "slimenodes_slime_liquid_cyan.png",
-			backface_culling = false
-		},
-	},
-	alpha = 120,
-	sunlight_propagates = true,
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = true,
-	buildable_to = false,
-	drop = "slimenodes:slime_liquid_cyan",
-	liquidtype = "source",
-	liquid_alternative_flowing = "slimenodes:slime_liquid_cyan",
-	liquid_alternative_source = "slimenodes:slime_liquid_cyan",
-	liquid_viscosity = 1,
-	liquid_range = 0,
-	liquid_renewable = false,
-	liquids_pointable = true,
-	drowning = 0,
-	post_effect_color = {a=16, r=0, g=255, b=255},
-	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3},
-	sounds = {
-		dug = {name="slimenodes_dig", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-	}
-})
+slimenodesColorNames = { "Cyan", "Green", "Orange", "Violet" }
+slimenodesParams = {}
+slimenodesParams["cyan"] = {}
+slimenodesParams["cyan"].alpha = 120
+slimenodesParams["cyan"].liquid_viscosity = 1
+slimenodesParams["cyan"].post_effect_color = {a=16, r=0, g=255, b=255}
+slimenodesParams["green"] = {}
+slimenodesParams["green"].alpha = 170
+slimenodesParams["green"].liquid_viscosity = 2
+slimenodesParams["green"].post_effect_color = {a=64, r=100, g=200, b=100}
+slimenodesParams["orange"] = {}
+slimenodesParams["orange"].alpha = 200
+slimenodesParams["orange"].liquid_viscosity = 4
+slimenodesParams["orange"].post_effect_color = {a=96, r=200, g=100, b=0}
+slimenodesParams["violet"] = {}
+slimenodesParams["violet"].alpha = 220
+slimenodesParams["violet"].liquid_viscosity = 6
+slimenodesParams["violet"].post_effect_color = {a=128, r=50, g=0, b=200}
 
-minetest.register_node("slimenodes:slime_liquid_green", {
-	description = S("Green liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_green.png"),
-	drawtype = "liquid",
-	tiles = { "slimenodes_slime_liquid_green.png" },
-	special_tiles = { { name = "slimenodes_slime_liquid_green.png", backface_culling = false } },
-	alpha = 170,
-	sunlight_propagates = false,
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = true,
-	buildable_to = false,
-	drop = "slimenodes:slime_liquid_green",
-	liquidtype = "source",
-	liquid_alternative_flowing = "slimenodes:slime_liquid_green",
-	liquid_alternative_source = "slimenodes:slime_liquid_green",
-	liquid_viscosity = 2,
-	liquid_range = 0,
-	liquid_renewable = false,
-	liquids_pointable = true,
-	drowning = 0,
-	post_effect_color = {a=64, r=100, g=200, b=100},
-	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=1},
-	sounds = {
-		dug = {name="slimenodes_dig", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-	}
-})
+if not deepcopy then
+	-- See http://lua-users.org/wiki/CopyTable
+	function deepcopy(orig)
+		local orig_type = type(orig)
+		local copy
+		if orig_type == 'table' then
+			copy = {}
+			for orig_key, orig_value in next, orig, nil do
+				copy[deepcopy(orig_key)] = deepcopy(orig_value)
+			end
+			setmetatable(copy, deepcopy(getmetatable(orig)))
+		else -- number, string, boolean, etc
+			copy = orig
+		end
+		return copy
+	end
+end
 
-minetest.register_node("slimenodes:slime_liquid_orange", {
-	description = S("Orange liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_orange.png"),
-	drawtype = "liquid",
-	tiles = { "slimenodes_slime_liquid_orange.png" },
-	special_tiles = { { name = "slimenodes_slime_liquid_orange.png", backface_culling = false } },
-	alpha = 200,
-	sunlight_propagates = false,
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = true,
-	buildable_to = false,
-	drop = "slimenodes:slime_liquid_orange",
-	liquidtype = "source",
-	liquid_alternative_flowing = "slimenodes:slime_liquid_orange",
-	liquid_alternative_source = "slimenodes:slime_liquid_orange",
-	liquid_viscosity = 4,
-	liquid_range = 0,
-	liquid_renewable = false,
-	liquids_pointable = true,
-	drowning = 0,
-	post_effect_color = {a=96, r=200, g=100, b=0},
-	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=2},
-	sounds = {
-		dug = {name="slimenodes_dig", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-	}
-})
+if not level1copy then
+	-- See http://lua-users.org/wiki/CopyTable
+	function level1copy(orig)
+		local orig_type = type(orig)
+		local copy
+		if orig_type == 'table' then
+			copy = {}
+			for orig_key, orig_value in next, orig, nil do
+				copy[orig_key] = orig_value
+			end
+		else -- number, string, boolean, etc
+			copy = orig
+		end
+		return copy
+	end
+end
 
-minetest.register_node("slimenodes:slime_liquid_violet", {
-	description = S("Violet liquid slime"),
-	inventory_image = minetest.inventorycube("slimenodes_slime_liquid_violet.png"),
-	drawtype = "liquid",
-	tiles = { "slimenodes_slime_liquid_violet.png" },
-	special_tiles = { { name = "slimenodes_slime_liquid_violet.png", backface_culling = false } },
-	alpha = 220,
-	sunlight_propagates = false,
-	paramtype = "light",
-	walkable = false,
-	pointable = false,
-	diggable = true,
-	buildable_to = false,
-	drop = "slimenodes:slime_liquid_violet",
-	liquidtype = "source",
-	liquid_alternative_flowing = "slimenodes:slime_liquid_violet",
-	liquid_alternative_source = "slimenodes:slime_liquid_violet",
-	liquid_viscosity = 6,
-	liquid_range = 0,
-	liquid_renewable = false,
-	liquids_pointable = true,
-	drowning = 0,
-	post_effect_color = {a=128, r=50, g=0, b=200},
-	groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3, level=3},
-	sounds = {
-		dug = {name="slimenodes_dig", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-	}
-})
+dofile(minetest.get_modpath("slimenodes").."/craftitems.lua")
 
-minetest.register_node("slimenodes:slime_solid_cyan", {
-	description = S("Cyan solid slime"),
-	tiles = { "slimenodes_slime_solid_cyan.png" },
-	walkable = true,
-	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=1},
-	sounds = {
-		dug = {name="slimenodes_dug", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-		footstep = {name="slimenodes_step", gain=0.2},
-	}
-})
 
-minetest.register_node("slimenodes:slime_solid_green", {
-	description = S("Green solid slime"),
-	tiles = { "slimenodes_slime_solid_green.png" },
-	walkable = true,
-	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=2},
-	sounds = {
-		dug = {name="slimenodes_dug", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-		footstep = {name="slimenodes_step", gain=0.3},
+-- craftitems.lua defines slimenodesColorNames
+local slimeNodeLevel = 0
+local slimenodesLiqDef = nil
+for index = 1, #slimenodesColorNames do
+	descPart = slimenodesColorNames[index]
+	namePart = descPart:lower()
+	local snLName = "slimenodes:slime_liquid_" .. namePart
+	local snSName = "slimenodes:slime_solid_" .. namePart
+	slimenodesLiqDef = {
+		drawtype = "liquid",
+		alpha = 120,
+		sunlight_propagates = true,
+		paramtype = "light",
+		walkable = false,
+		pointable = false,
+		diggable = true,
+		buildable_to = false,
+		liquidtype = "source",
+		liquid_viscosity = 1,
+		liquid_range = 0,
+		liquid_renewable = false,
+		liquids_pointable = true,
+		drowning = 0,
+		sounds = {
+			dug = {name="slimenodes_dig", gain=0.6},
+			place = {name="slimenodes_place", gain=0.6},
+		}
 	}
-})
+	if nil then   -- rawget(_G, "default") and default.register_water then
+		print("slimenodes is using default.register_water...")
+		-- Liquid:
+		local def = {
+			alpha             = slimenodesLiqDef.alpha,
+			basename          = "slimenodes:slime_liquid_" .. namePart,
+			light             = -1             ,
+			liquid_viscosity  = slimenodesLiqDef.liquid_viscosity,
+			liquid_range      = slimenodesLiqDef.liquid_range,
+			sounds            = slimenodesLiqDef.sounds,
+			drowning          = slimenodesLiqDef.drowning,
+		}
+		if slimenodesParams[namePart]
+				and slimenodesParams[namePart].post_effect_color then
+			def.post_effect_color = slimenodesParams[namePart].post_effect_color
+		else
+			def.post_effect_color = nil
+		end
+		default.register_water(def)
 
-minetest.register_node("slimenodes:slime_solid_orange", {
-	description = S("Orange solid slime"),
-	tiles = { "slimenodes_slime_solid_orange.png" },
-	walkable = true,
-	groups = {bouncy=90, fall_damage_add_percent=-100, slimey=3, level=2},
-	sounds = {
-		dug = {name="slimenodes_dug", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-		footstep = {name="slimenodes_step", gain=0.35},
-	}
-})
+		-- Solid:
+		local def = {
+			alpha             = slimenodesLiqDef.alpha,
+			basename          = snSName,
+			light             = -1             ,
+			liquid_range      = 0,
+			sounds            = slimenodesLiqDef.sounds,
+		}
+		if slimenodesParams[namePart].post_effect_color then
+			def.post_effect_color = slimenodesParams[namePart].post_effect_color
+		end
+		default.register_water(def)
+	else
+		print("slimenodes is using register_node...")
+		-- Liquid:
+		-- -- why does this commented version of the code cause a block that
+		-- -- tries to flow but has CONTENT_IGNORE error?
+		--local def = slimenodesLiqDef
+		--def.description = S("Liquid " .. descPart .. " Slime Block")
+		--def.inventory_image = minetest.inventorycube(
+			--"slimenodes_block_liquid_" .. namePart .. ".png"
+		--)
+		--def.tiles = { "slimenodes_block_liquid_" .. namePart .. ".png" }
+		--def.special_tiles = {
+			--{
+				--name = "slimenodes_block_liquid_" .. namePart .. ".png",
+				--backface_culling = false
+			--},
+		--}
+		--def.drop = snLName
+		---- liquid_alternative_flowing = "slimenodes:slime_liquid_" .. namePart .. "_slope"
+		--liquid_alternative_flowing = snLName
+		--liquid_alternative_source = snLName
+		--if slimenodesParams[namePart].post_effect_color then
+			--def.post_effect_color = slimenodesParams[namePart].post_effect_color
+		--end
+		--if slimenodesParams[namePart].alpha then
+			--def.alpha = slimenodesParams[namePart].alpha
+		--end
+		--if slimenodesParams[namePart].liquid_viscosity then
+			--def.liquid_viscosity = slimenodesParams[namePart].liquid_viscosity
+		--end
+		--def.groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3}
+		--if slimeNodeLevel > 0 then
+			--def.groups.level = slimeNodeLevel
+		--end
+		--minetest.register_node(snLName, def)
+		minetest.register_node(snLName, {
+			description = S("Liquid " .. descPart .. " Slime Block"),
+			inventory_image = minetest.inventorycube("slimenodes_block_liquid_" .. namePart .. ".png"),
+			drawtype = "liquid",
+			tiles = { "slimenodes_block_liquid_" .. namePart .. ".png" },
+			special_tiles = {
+				{
+					name = "slimenodes_block_liquid_" .. namePart .. ".png",
+					backface_culling = false
+				},
+			},
+			alpha = slimenodesParams[namePart].alpha or 120,
+			sunlight_propagates = true,
+			paramtype = "light",
+			walkable = false,
+			pointable = false,
+			diggable = true,
+			buildable_to = false,
+			drop = snLName,
+			liquidtype = "source",
+			liquid_alternative_flowing = snLName,
+			liquid_alternative_source = snLName,
+			liquid_viscosity = slimenodesParams[namePart].liquid_viscosity or 1,
+			liquid_range = 0,
+			liquid_renewable = false,
+			liquids_pointable = true,
+			drowning = 0,
+			post_effect_color = deepcopy(slimenodesParams[namePart].post_effect_color) or {a=16, r=128, g=128, b=128},
+			groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3},
+			sounds = {
+				dug = {name="slimenodes_dig", gain=0.6},
+				place = {name="slimenodes_place", gain=0.6},
+			}
+		})
 
-minetest.register_node("slimenodes:slime_solid_violet", {
-	description = S("Violet solid slime"),
-	tiles = { "slimenodes_slime_solid_violet.png" },
-	walkable = true,
-	groups = {bouncy=90, fall_damage_add_percent=-30, slimey=3, level=3},
-	sounds = {
-		dug = {name="slimenodes_dug", gain=0.6},
-		place = {name="slimenodes_place", gain=0.6},
-		footstep = {name="slimenodes_step", gain=0.4},
-	}
-})
 
+		-- Solid:
+		local solidGroups = {bouncy=90, fall_damage_add_percent=-100, slimey=3,}
+		if slimeNodeLevel > 0 then
+			solidGroups.level = slimeNodeLevel
+		end
+
+		minetest.register_node(snSName, {
+			description = S("Solid " .. descPart .. " Slime Block"),
+			tiles = { "slimenodes_block_solid_" .. namePart .. ".png" },
+			walkable = true,
+			groups = solidGroups,
+			sounds = {
+				dug = {name="slimenodes_dug", gain=0.6},
+				place = {name="slimenodes_place", gain=0.6},
+				footstep = {name="slimenodes_step", gain=0.2},
+			}
+		})
+
+	end
+	if slimeNodeLevel <= 3 then
+		slimeNodeLevel = slimeNodeLevel + 1
+	end
+end
 
 minetest.register_tool("slimenodes:collector_lvl1", {
 	description = S("Slime collector level 1"),

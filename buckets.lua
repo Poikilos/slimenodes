@@ -17,74 +17,64 @@
 --                  source neighbour, even if defined as 'liquid_renewable = false'.
 --                  Needed to avoid creating holes in sloping rivers.
 -- This function can be called from any mod (that depends on bucket).
+-- - OldCoder (Bucket_Game)
 
-if rawget(_G, "bucket") and bucket.register_liquid then
+
+-- craftitems.lua defines slimenodesColorNames
+if rawget(_G, "bucket") and bucket.register_bucket_hash then
+	for index = 1, #slimenodesColorNames do
+		local descPart = slimenodesColorNames[index]
+		local namePart = descPart:lower()
+		local liquid_bh = {}
+		liquid_bh.bucket_node = "slimenodes:bucket_slime_liquid_" .. namePart
+		liquid_bh.desc = "Liquid " .. descPart .. " Slime Bucket"
+		liquid_bh.source_node = "slimenodes:slime_liquid_" .. namePart
+		liquid_bh.flowing_node = "slimenodes:slime_liquid_" .. namePart -- .. "_slope"
+		liquid_bh.force_renew = false
+		-- groups =  -- TODO?
+		-- liquid_bh.inventory_image =  "slimenodes_block_liquid_" .. namePart .. ".png"
+		liquid_bh.invsource_image =  "slimenodes_block_liquid_" .. namePart .. ".png"
+		bucket.register_bucket_hash(liquid_bh)
+		-- rawget(_G, "ocutil") and bucket.register_node_bucketable then
+		--ocutil.register_node_bucketable ("slimenodes:bucket_slime_solid_" .. namePart, {
+			--description = "Solid " .. descPart .. " Slime Bucket" ,
+			--bucket_base = "slimenodes:slime_solid_" .. namePart ,
+			--tiles = {"slimenodes_block_solid_" .. namePart .. ".png"} ,
+			--groups = {fall_damage_add_percent=-100, disable_jump=1, puts_out_fire=1, cools_lava=1, liquid=3, slimey=3} , -- and levels? see init.lua
+			--sounds = {
+				--dug = {name="slimenodes_dig", gain=0.6},
+				--place = {name="slimenodes_place", gain=0.6},
+			--},
+		--})
+		local solid_bh = {}
+		solid_bh.bucket_node = "slimenodes:bucket_slime_solid_" .. namePart
+		solid_bh.desc = "Solid " .. descPart .. " Slime Bucket"
+		solid_bh.source_node = "slimenodes:slime_solid_" .. namePart
+		solid_bh.flowing_node = "slimenodes:slime_solid_" .. namePart -- .. "_slope"
+		solid_bh.force_renew = false
+		-- groups =  -- TODO?
+		-- solid_bh.inventory_image = "slimenodes_block_solid_" .. namePart .. ".png"
+		solid_bh.invsource_image = "slimenodes_block_solid_" .. namePart .. ".png"
+		bucket.register_bucket_hash(solid_bh)
+	end
+elseif rawget(_G, "bucket") and bucket.register_liquid then
 	-- source, flowing, itemname, inventory image, name, groups, force_renew
-	bucket.register_liquid(
-		"slimenodes:slime_liquid_cyan",
-		"slimenodes:slime_liquid_cyan",
-		"slimenodes:bucket_slime_liquid_cyan",
-		"slimenodes_bucket_slime_liquid_cyan.png",
-		"Liquid Cyan Slime Bucket"
-	)
-	bucket.register_liquid(
-		"slimenodes:slime_solid_cyan",
-		"slimenodes:slime_solid_cyan",
-		"slimenodes:bucket_slime_solid_cyan",
-		"slimenodes_bucket_slime_solid_cyan.png",
-		"Solid Cyan Slime Bucket"
-	)
-
-	bucket.register_liquid(
-		"slimenodes:slime_liquid_green",
-		"slimenodes:slime_liquid_green",
-		"slimenodes:bucket_slime_liquid_green",
-		"slimenodes_bucket_slime_liquid_green.png",
-		"Liquid Green Slime Bucket"
-	)
-	bucket.register_liquid(
-		"slimenodes:slime_solid_green",
-		"slimenodes:slime_solid_green",
-		"slimenodes:bucket_slime_solid_green",
-		"slimenodes_bucket_slime_solid_green.png",
-		"Solid Green Slime Bucket"
-	)
-
-	bucket.register_liquid(
-		"slimenodes:slime_liquid_orange",
-		"slimenodes:slime_liquid_orange",
-		"slimenodes:bucket_slime_liquid_orange",
-		"slimenodes_bucket_slime_liquid_orange.png",
-		"Liquid Orange Slime Bucket"
-	)
-	bucket.register_liquid(
-		"slimenodes:slime_solid_orange",
-		"slimenodes:slime_solid_orange",
-		"slimenodes:bucket_slime_solid_orange",
-		"slimenodes_bucket_slime_solid_orange.png",
-		"Solid Orange Slime Bucket"
-	)
-
-	bucket.register_liquid(
-		"slimenodes:slime_liquid_violet",
-		"slimenodes:slime_liquid_violet",
-		"slimenodes:bucket_slime_liquid_violet",
-		"slimenodes_bucket_slime_liquid_violet.png",
-		"Liquid Violet Slime Bucket"
-	)
-	bucket.register_liquid(
-		"slimenodes:slime_solid_violet",
-		"slimenodes:slime_solid_violet",
-		"slimenodes:bucket_slime_solid_violet",
-		"slimenodes_bucket_slime_solid_violet.png",
-		"Solid Violet Slime Bucket"
-	)
-
-	-- minetest.register_craft({
-		-- type = "fuel",
-		-- recipe = "bucket:bucket_lava",
-		-- burntime = 60,
-		-- replacements = {{"bucket:bucket_lava", "bucket:bucket_empty"}},
-	-- })
-
+	for index = 1, #slimenodesColorNames do
+		local descPart = slimenodesColorNames[index]
+		local namePart = descPart:lower()
+		bucket.register_liquid(
+			"slimenodes:slime_liquid_" .. namePart,
+			"slimenodes:slime_liquid_" .. namePart,
+			"slimenodes:bucket_slime_liquid_" .. namePart,
+			"slimenodes_bucket_slime_liquid_" .. namePart .. ".png",
+			"Liquid "..descPart.." Slime Bucket"
+		)
+		bucket.register_liquid(
+			"slimenodes:slime_solid_" .. namePart,
+			"slimenodes:slime_solid_" .. namePart,
+			"slimenodes:bucket_slime_solid_" .. namePart,
+			"slimenodes_bucket_slime_solid_" .. namePart .. ".png",
+			"Solid "..descPart.." Slime Bucket"
+		)
+	end
 end

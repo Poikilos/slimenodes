@@ -1,62 +1,64 @@
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "slimenodes:bucket_slime_solid_cyan",
-	recipe = "slimenodes:bucket_slime_liquid_cyan"
-})
 
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "slimenodes:bucket_slime_solid_green",
-	recipe = "slimenodes:bucket_slime_liquid_green"
-})
-
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "slimenodes:bucket_slime_solid_orange",
-	recipe = "slimenodes:bucket_slime_liquid_orange"
-})
-
-minetest.register_craft({
-	type = "cooking",
-	cooktime = 10,
-	output = "slimenodes:bucket_slime_solid_violet",
-	recipe = "slimenodes:bucket_slime_liquid_violet"
-})
+-- craftitems.lua defines slimenodesColorNames
+for index = 1, #slimenodesColorNames do
+	local descPart = slimenodesColorNames[index]
+	local namePart = descPart:lower()
+	minetest.register_craft({
+		type = "cooking",
+		cooktime = 10,
+		output = "slimenodes:bucket_slime_solid_" .. namePart,
+		recipe = "slimenodes:bucket_slime_liquid_" .. namePart
+	})
+end
 
 local mesecons_materials = minetest.get_modpath("mesecons_materials")
 local technic = minetest.get_modpath("technic")
 
-local glue_fullname = nil
+local glue_s = nil
 
 if mesecons_materials then
-	glue_fullname = "mesecons_materials:glue"
+	glue_s = "mesecons_materials:glue"
 elseif technic then
-	glue_fullname = "technic:glue"
+	glue_s = "technic:glue"
 end
-if glue_fullname then
-	minetest.register_craft({
-		type = "shapeless",
-		output = "slimenodes:bucket_slime_liquid_cyan",
-		recipe = {"bucket:bucket_water", glue_fullname, "dye:cyan"},
-	})
-	minetest.register_craft({
-		type = "shapeless",
-		output = "slimenodes:bucket_slime_liquid_green",
-		recipe = {"bucket:bucket_water", glue_fullname, "dye:green"},
-	})
-	minetest.register_craft({
-		type = "shapeless",
-		output = "slimenodes:bucket_slime_liquid_orange",
-		recipe = {"bucket:bucket_water", glue_fullname, "dye:orange"},
-	})
-	minetest.register_craft({
-		type = "shapeless",
-		output = "slimenodes:bucket_slime_liquid_violet",
-		recipe = {"bucket:bucket_water", glue_fullname, "dye:violet"},
-	})
+if glue_s then
+	-- craftitems.lua defines slimenodesColorNames
+	for index = 1, #slimenodesColorNames do
+		local descPart = slimenodesColorNames[index]
+		local namePart = descPart:lower()
+		local thisDye = "dye:" .. namePart
+		if minetest.registered_items[thisDye] then
+			minetest.register_craft({
+				type = "shapeless",
+				output = "slimenodes:bucket_slime_liquid_" .. namePart,
+				recipe = {
+					glue_s, glue_s, glue_s,
+					glue_s, thisDye, glue_s,
+					glue_s, "bucket:bucket_water", glue_s,
+				},
+			})
+		end
+	end
 end
 
-
+for index = 1, #slimenodesColorNames do
+	local descPart = slimenodesColorNames[index]
+	local namePart = descPart:lower()
+	local frag = "slimenodes:slime_" .. namePart
+	local bucketName = "slimenodes:bucket_slime_liquid_" .. namePart
+	minetest.register_craft({
+		type = "shapeless",
+		output = bucketName,
+		recipe = {
+			frag, frag, frag,
+			frag, frag, frag,
+			frag, "bucket:bucket_empty", frag,
+		},
+	})
+	minetest.register_craft({
+		output = {frag..' 8', "bucket:bucket_empty"},
+		recipe = {
+			{bucketName},
+		}
+	})
+end
