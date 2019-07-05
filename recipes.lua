@@ -55,10 +55,17 @@ for index = 1, #slimenodesColorNames do
 			frag, "bucket:bucket_empty", frag,
 		},
 	})
-	minetest.register_craft({
-		output = {frag..' 8', "bucket:bucket_empty"},
-		recipe = {
-			{bucketName},
-		}
-	})
+	if technic and technic.register_separating_recipe then
+		technic.register_separating_recipe({
+			input = {bucketName.." 1"},
+			output = {frag..' 8', "bucket:bucket_empty 1"},
+		})
+	else
+		minetest.register_craft({
+			recipe = {
+				{bucketName},
+			},
+			output = frag..' 8',
+		})
+	end
 end
